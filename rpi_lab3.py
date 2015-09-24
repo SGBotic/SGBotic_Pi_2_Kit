@@ -1,5 +1,6 @@
 # rpi_lab3.py 
-# This program will monitor the status of the push button. When it is pressed, cycle the brigthness of LED
+# This program will monitor the status of the push button. 
+# When it is pressed, cycle the brigthness of LED
 
 # Import Python library
 import RPi.GPIO as GPIO
@@ -15,7 +16,9 @@ dutyCycle = 0 # duty cycle of PWM output. Value=0.0 to 100.0
 GPIO.setmode(GPIO.BCM)          # Broadcom pin-numbering scheme
 GPIO.setup(pwmPin, GPIO.OUT)    # PWM pin set as output
 pwm = GPIO.PWM(pwmPin, 50)      # Initialize PWM on pwmPin 100Hz frequency
-GPIO.setup(butPin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Button pin set as input with internal pull-up
+
+# Button pin set as input with internal pull-up
+GPIO.setup(butPin, GPIO.IN, pull_up_down=GPIO.PUD_UP) 
 
 # start PWM
 pwm.start(dutyCycle)

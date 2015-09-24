@@ -1,4 +1,4 @@
-# rpi_lab5.py
+23# rpi_lab5.py
 # In this lab, we will will look at how to read temperatue and humidity value from DHT11 sensor and post the data
 # to thingspeak.com, an Iot cloud service.
 #
@@ -12,7 +12,7 @@ import time
 pin = 23  #connect DHT11's output to GPIO23
 
 sleep = 30      # delay between posts to the thingspeak.com (in second)
-key = 'XB3N0MM3KWYDSIOQ'  # Thingspeak's API key (replace it with your own API key)
+key = 'thingspeak_API_Key'  # Thingspeak's API key (replace it with your own API key)
 
 #Data log temperature and humidity value to Thingspeak Channel
 def datalog():

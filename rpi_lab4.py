@@ -6,8 +6,8 @@ import time
 import RPi.GPIO as GPIO
 
 # Pin Definitons:
-sonarTrigger = 23
-sonarEcho = 24
+sonarTrigger = 27   # Trigger pin connect to GPIO27
+sonarEcho = 17      # Echo pin connect to GPIO17
 
 # Pin Setup
 GPIO.setmode(GPIO.BCM)
@@ -24,13 +24,14 @@ print("Press CTRL+C to terminate program")
 try: 
    while 1:
 
-      	# Send 10us pulse to trigger
+    # Send 10us pulse to trigger
 	GPIO.output(sonarTrigger, GPIO.HIGH)
 	time.sleep(0.00001)
 	GPIO.output(sonarTrigger, GPIO.LOW)
 	start = time.time()
 
-	#Listen to the echo pin. 0 means nothing is happening. Once a signal is received, record the time
+	#Listen to the echo pin. 0 means nothing is happening. 
+    #Once a signal is received, record the time
 	while GPIO.input(sonarEcho)==0:
   	   tBegin = time.time()
 	while GPIO.input(sonarEcho)==1:
@@ -44,8 +45,7 @@ try:
 	distance = timepassed * 34000 / 2
 
 	print "Distance : %.1f" % distance
-	time.sleep(0.1)
+	time.sleep(0.1)   # Delay 0.1 second
 
 except KeyboardInterrupt: # Exit while loop if CTRL+C is pressed
-	#  set GPIO to input
-	GPIO.cleanup()
+	GPIO.cleanup()        # cleanup all GPIO and set all to input
